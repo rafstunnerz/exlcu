@@ -10,8 +10,8 @@
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
 *{box-sizing:border-box;margin:0;padding:0}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
-.bgvideo{position:fixed;inset:0;z-index:-3;object-fit:cover;width:100%;height:100%;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
-.bgshade{position:fixed;inset:0;z-index:-2;background: linear-gradient(180deg,rgba(5,3,12,.18),rgba(8,5,18,.56) 56%,#07050d 100%),linear-gradient(90deg,rgba(5,3,12,.42),transparent 45%,rgba(5,3,12,.42));}
+.bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.28) saturate(.8) contrast(1.1) blur(1px);}
+.bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
@@ -39,14 +39,13 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 .player-cover{width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);flex-shrink:0;}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
 .player-info{flex:1;}
-.player-title{font-size:1.1rem;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
+.player-title{1.1rem;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
 .player-artist{font-size:.75rem;color:var(--dim);letter-spacing:3px;margin-bottom:12px;}
 .player-controls{display:flex;gap:12px;align-items:center;}
 .player-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--ink);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:1rem;transition:all.2s ease;}
 .player-btn:hover{background:rgba(212,175,55,.2);border-color:var(--gold);}
 .player-progress{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin:0 10px;}
 .player-bar{height:100%;width:0%;background:var(--gold);transition:width.1s linear;}
-
 /* AFFILIATES */
 .affiliates{width:min(700px,calc(100% - 40px));margin:30px auto 0;display:flex;flex-direction:column;align-items:center;gap:18px;}
 .aff-title{color:#fff;font-size:.68rem;letter-spacing:5px;text-align:center;}
@@ -74,9 +73,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 
 <section id="treeArea">
 <div class="tier">
-<div class="ttitle">EXCLUSIVE |
-REVSHIT |
-AMARI</div>
+<div class="ttitle">EXCLUSIVE | REVSHIT | AMARI</div>
 <div class="roster">
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/NTcYvTj.jpeg"></div>
@@ -187,9 +184,9 @@ progressBar.style.width = progress + "%";
 
 document.addEventListener("pointermove",function(e){
 if(!matchMedia("(pointer:fine)").matches)return;
-var x=(e.clientX/innerWidth-.5)*7;
-var y=(e.clientY/innerHeight-.5)*4;
-bgvideo.style.transform="scale(1.04) translate("+x+"px,"+y+"px)";
+var x=(e.clientX/innerWidth-.5)*5;
+var y=(e.clientY/innerHeight-.5)*3;
+bgvideo.style.transform="translate(-50%,-50%) scale(1.1) translate("+x+"px,"+y+"px)";
 });
 </script>
 </body>
