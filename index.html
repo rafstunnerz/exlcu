@@ -46,6 +46,14 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 .player-btn:hover{background:rgba(212,175,55,.2);border-color:var(--gold);}
 .player-progress{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin:0 10px;}
 .player-bar{height:100%;width:0%;background:var(--gold);transition:width.1s linear;}
+
+/* AFFILIATES */
+.affiliates{width:min(700px,calc(100% - 40px));margin:30px auto 0;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.aff-title{color:#fff;font-size:.68rem;letter-spacing:5px;text-align:center;}
+.aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform.3s ease,border-color.3s ease;}
+.aff-person:hover{border-color:rgba(212,175,55,.95);transform:translateY(-3px) scale(1.05);}
+.aff-person img{width:100%;height:100%;object-fit:cover;}
 </style>
 </head>
 <body>
@@ -66,7 +74,9 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 
 <section id="treeArea">
 <div class="tier">
-<div class="ttitle">EXCLUSIVE | REVSHIT | AMARI</div>
+<div class="ttitle">EXCLUSIVE |
+REVSHIT |
+AMARI</div>
 <div class="roster">
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/NTcYvTj.jpeg"></div>
@@ -122,6 +132,17 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <button class="player-btn" id="playBtn">▶</button>
 <div class="player-progress"><div class="player-bar" id="progressBar"></div></div>
 </div>
+</div>
+</div>
+
+<!-- AFFILIATES -->
+<div class="affiliates">
+<div class="aff-title">AFFILIATES</div>
+<div class="aff-roster">
+<div class="aff-person"><img src="https://i.imgur.com/BPQlx8m.jpeg" alt="aff1"></div>
+<div class="aff-person"><img src="https://i.imgur.com/h3Utj0q.jpeg" alt="aff2"></div>
+<div class="aff-person"><img src="https://i.imgur.com/Nvl0jOV.jpeg" alt="aff3"></div>
+<div class="aff-person"><img src="https://i.imgur.com/DwxhEV0.jpeg" alt="aff4"></div>
 </div>
 </div>
 
