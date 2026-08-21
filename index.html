@@ -10,9 +10,12 @@
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;}
-body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
+body{margin:0;min-height:100vh;overflow-x:hidden;overflow-y:scroll;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
+/* HIDE SCROLLBAR FOR ALL BROWSERS */
 body::-webkit-scrollbar{display:none;}
 body{-ms-overflow-style:none;scrollbar-width:none;}
+html::-webkit-scrollbar{display:none;}
+html{-ms-overflow-style:none;scrollbar-width:none;}
 .bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.28) saturate(.8) contrast(1.1) blur(1px);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
