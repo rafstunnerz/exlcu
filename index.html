@@ -10,7 +10,7 @@
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
 *{box-sizing:border-box;margin:0;padding:0}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
-.bgpic{position:fixed;inset:-28px;z-index:-3;background:url("https://imgur.com/a/CSrmoZX") center 42%/cover no-repeat;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
+.bgvideo{position:fixed;inset:-28px;z-index:-3;object-fit:cover;width:110%;height:110%;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: linear-gradient(180deg,rgba(5,3,12,.18),rgba(8,5,18,.56) 56%,#07050d 100%),linear-gradient(90deg,rgba(5,3,12,.42),transparent 45%,rgba(5,3,12,.42));}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
@@ -50,7 +50,9 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 </style>
 </head>
 <body>
-<div class="bgpic"></div>
+<video class="bgvideo" autoplay loop muted playsinline>
+<source src="https://i.imgur.com/vFys77C.mp4" type="video/mp4">
+</video>
 <div class="bgshade"></div>
 
 <div id="gate">
@@ -90,8 +92,16 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <div class="pplacard"><div class="pname">nicolez</div><div class="phandle">@loczzzz</div><div class="pstatus">Online</div></div>
 </article>
 <article class="person">
+<div class="pface"><img src="https://i.imgur.com/I2qmINA.jpeg"></div>
+<div class="pplacard"><div class="pname">spinback/vera</div><div class="phandle">@kiki</div><div class="pstatus">Online</div></div>
+</article>
+<article class="person">
 <div class="pface"><img src="https://i.imgur.com/97T8keB.jpeg"></div>
 <div class="pplacard"><div class="pname">seb</div><div class="phandle">@sebvsall</div><div class="pstatus">Online</div></div>
+</article>
+<article class="person">
+<div class="pface"><img src="https://i.imgur.com/sel8bty.jpeg"></div>
+<div class="pplacard"><div class="pname">restinpeace</div><div class="phandle"@deleted_user124211321215</div><div class="pstatus">Online</div></div>
 </article>
 </div>
 </div>
@@ -123,6 +133,7 @@ audio.loop = true;
 var isPlaying = false;
 var playBtn = document.getElementById("playBtn");
 var progressBar = document.getElementById("progressBar");
+var bgvideo = document.querySelector(".bgvideo");
 
 document.getElementById("gobtn").addEventListener("click",function(){
 document.getElementById("gate").style.opacity="0";
@@ -152,10 +163,9 @@ progressBar.style.width = progress + "%";
 
 document.addEventListener("pointermove",function(e){
 if(!matchMedia("(pointer:fine)").matches)return;
-var bg=document.querySelector(".bgpic");
 var x=(e.clientX/innerWidth-.5)*7;
 var y=(e.clientY/innerHeight-.5)*4;
-bg.style.transform="scale(1.04) translate("+x+"px,"+y+"px)";
+bgvideo.style.transform="scale(1.04) translate("+x+"px,"+y+"px)";
 });
 </script>
 </body>
