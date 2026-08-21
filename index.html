@@ -11,7 +11,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;}
 body{margin:0;min-height:100vh;overflow-x:hidden;overflow-y:scroll;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
-/* HIDE SCROLLBAR FOR ALL BROWSERS */
 body::-webkit-scrollbar{display:none;}
 body{-ms-overflow-style:none;scrollbar-width:none;}
 html::-webkit-scrollbar{display:none;}
@@ -40,7 +39,6 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 .pname{font-size:.76rem;font-weight:700;text-align:center}
 .phandle{font-size:.57rem;color:var(--dim);text-align:center}
 .pstatus{color:var(--gold);font-size:.55rem;margin-top:4px;text-align:center}
-/* MUSIC PLAYER */
 .player{width:min(600px,calc(100% - 40px));margin:40px auto 0;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 12px 28px rgba(0,0,0,.5);display:flex;gap:20px;align-items:center;scroll-margin-top:60px;}
 .player-cover{width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);flex-shrink:0;}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
@@ -52,15 +50,12 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 .player-btn:hover{background:rgba(212,175,55,.2);border-color:var(--gold);}
 .player-progress{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin:0 10px;}
 .player-bar{height:100%;width:0%;background:var(--gold);transition:width.1s linear;}
-/* AFFILIATES */
 .affiliates{width:min(700px,calc(100% - 40px));margin:30px auto 0;display:flex;flex-direction:column;align-items:center;gap:18px;scroll-margin-top:60px;}
 .aff-title{color:#fff;font-size:.68rem;letter-spacing:5px;text-align:center;}
 .aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 .aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform.3s ease,border-color.3s ease;}
 .aff-person:hover{border-color:rgba(212,175,55,.95);transform:translateY(-3px) scale(1.05);}
 .aff-person img{width:100%;height:100%;object-fit:cover;}
-
-/* NAV DOTS */
 .navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);border:2px solid transparent;cursor:pointer;transition:all.3s ease;}
 .navdot:hover{background:rgba(212,175,55,.6);}
@@ -74,7 +69,6 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 </video>
 <div class="bgshade"></div>
 
-<!-- NAV DOTS -->
 <div class="navdots">
 <div class="navdot active" data-target="exclusive"></div>
 <div class="navdot" data-target="luvones"></div>
@@ -138,7 +132,6 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 </div>
 </section>
 
-<!-- MUSIC PLAYER -->
 <div class="player" id="player">
 <div class="player-cover">
 <img src="https://i.imgur.com/yUP4suK.jpeg" alt="cover">
@@ -153,7 +146,6 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 </div>
 </div>
 
-<!-- AFFILIATES -->
 <div class="affiliates" id="affiliates">
 <div class="aff-title">AFFILIATES</div>
 <div class="aff-roster">
@@ -167,6 +159,22 @@ html{-ms-overflow-style:none;scrollbar-width:none;}
 </main>
 
 <script>
+// ANTI-INSPECT + REDIRECT TO DECOY
+document.addEventListener('contextmenu',e=>e.preventDefault());
+
+document.addEventListener('keydown',function(e){
+if(e.key=='F12'||(e.ctrlKey&&e.shiftKey&&e.key=='I')||(e.ctrlKey&&e.shiftKey&&e.key=='C')||(e.ctrlKey&&e.key=='U')){
+    window.location.href='https://bobokatol.vercel.app/';
+}
+});
+
+// DETECT DEVTOOLS OPEN
+var devtools={open:false};
+setInterval(function(){
+if(window.outerHeight-window.innerHeight>200||window.outerWidth-window.innerWidth>200){
+if(!devtools.open){devtools.open=true;window.location.href='https://bobokatol.vercel.app/';}
+}},1000);
+
 var audio = new Audio();
 audio.src = "./Hev Abi - MEDICAL (Audio) [Sm4KLgn4110].mp3";
 audio.volume = 0.6;
@@ -204,7 +212,6 @@ var progress = (audio.currentTime / audio.duration) * 100;
 progressBar.style.width = progress + "%";
 });
 
-// NAV DOTS CLICK
 navdots.forEach(function(dot){
 dot.addEventListener("click",function(){
 var target = document.getElementById(this.dataset.target);
@@ -212,7 +219,6 @@ target.scrollIntoView({behavior:"smooth"});
 });
 });
 
-// ACTIVE DOT ON SCROLL
 window.addEventListener("scroll",function(){
 var sections = ["exclusive","luvones","player","affiliates"];
 var scrollPos = window.scrollY + 200;
