@@ -10,7 +10,7 @@
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
 *{box-sizing:border-box;margin:0;padding:0}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
-.bgpic{position:fixed;inset:-28px;z-index:-3;background:url("https://file.garden/akd_Clp1FDtnmrWc/YTDown.com_YouTube_NO-LIMIT-4L-ICE-ICE-OMV-REPOST_Media_T65gRhQbLA_001_1080p%20(online-video-cutter.com)%20(2).gif") center 42%/cover no-repeat;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
+.bgpic{position:fixed;inset:-28px;z-index:-3;background:url("https://imgur.com/a/CSrmoZX") center 42%/cover no-repeat;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: linear-gradient(180deg,rgba(5,3,12,.18),rgba(8,5,18,.56) 56%,#07050d 100%),linear-gradient(90deg,rgba(5,3,12,.42),transparent 45%,rgba(5,3,12,.42));}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
@@ -49,6 +49,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <main class="wrap">
 <p class="tag">“exclusive owns u.”</p>
 <div class="rule"></div>
+
 <section id="treeArea">
 <div class="tier">
 <div class="ttitle">EXCLUSIVE</div>
@@ -61,8 +62,13 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <div class="pface"><img src="https://i.imgur.com/AxucUUU.jpeg"></div>
 <div class="pplacard"><div class="pname">CO-FOUNDER</div><div class="phandle">@partner</div><div class="pstatus">Online</div></div>
 </article>
+<article class="person">
+<div class="pface"><img src="https://cdn.discordapp.com/avatars/1248736047643365458/avatar.png"></div>
+<div class="pplacard"><div class="pname">NEW MEMBER</div><div class="phandle">@1248736047643365458</div><div class="pstatus">Online</div></div>
+</article>
 </div>
 </div>
+
 <div class="tier">
 <div class="ttitle messiah">LUVONES</div>
 <div class="roster">
@@ -88,9 +94,7 @@ audio.loop = true;
 document.getElementById("gobtn").addEventListener("click",function(){
 document.getElementById("gate").style.opacity="0";
 document.querySelector(".wrap").classList.add("show");
-audio.play().catch(function(e){
-console.log("Audio blocked:", e);
-});
+audio.play().catch(function(e){console.log("Audio blocked:", e);});
 setTimeout(function(){document.getElementById("gate").remove()},600);
 });
 
