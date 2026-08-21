@@ -9,7 +9,10 @@
 <style>
 :root{--ink:#f5f2ff;--dim:rgba(245,242,255,.55);--gold:#d4af37;--line:rgba(220,210,255,.16);}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;}
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
+body::-webkit-scrollbar{display:none;}
+body{-ms-overflow-style:none;scrollbar-width:none;}
 .bgvideo{position:fixed;top:50%;left:50%;z-index:-3;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.1);object-fit:cover;filter:brightness(.28) saturate(.8) contrast(1.1) blur(1px);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: radial-gradient(ellipse at center,rgba(0,0,0,.2) 0%, rgba(0,0,0,.7) 100%);}
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
@@ -22,7 +25,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 .tag{margin:0 20px 0;color:var(--dim);font-size:.68rem;letter-spacing:1.5px;text-align:center;}
 .rule{width:60px;height:2px;margin:30px 0 18px;background:var(--gold);}
 #treeArea{width:min(1100px,calc(100% - 28px))}
-.tier{display:flex;flex-direction:column;align-items:center;margin-bottom:28px;}
+.tier{display:flex;flex-direction:column;align-items:center;margin-bottom:28px;scroll-margin-top:60px;}
 .ttitle{z-index:2;margin-bottom:20px;color:#fff;font-size:.68rem;letter-spacing:5px;}
 .messiah{margin-top:12px}
 .roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;position:relative;z-index:2;}
@@ -35,11 +38,11 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 .phandle{font-size:.57rem;color:var(--dim);text-align:center}
 .pstatus{color:var(--gold);font-size:.55rem;margin-top:4px;text-align:center}
 /* MUSIC PLAYER */
-.player{width:min(600px,calc(100% - 40px));margin:40px auto 0;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 12px 28px rgba(0,0,0,.5);display:flex;gap:20px;align-items:center;}
+.player{width:min(600px,calc(100% - 40px));margin:40px auto 0;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 12px 28px rgba(0,0,0,.5);display:flex;gap:20px;align-items:center;scroll-margin-top:60px;}
 .player-cover{width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.1);flex-shrink:0;}
 .player-cover img{width:100%;height:100%;object-fit:cover;}
 .player-info{flex:1;}
-.player-title{1.1rem;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
+.player-title{font-size:1.1rem;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
 .player-artist{font-size:.75rem;color:var(--dim);letter-spacing:3px;margin-bottom:12px;}
 .player-controls{display:flex;gap:12px;align-items:center;}
 .player-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--ink);width:36px;height:36px;border-radius:6px;cursor:pointer;font-size:1rem;transition:all.2s ease;}
@@ -47,12 +50,19 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 .player-progress{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin:0 10px;}
 .player-bar{height:100%;width:0%;background:var(--gold);transition:width.1s linear;}
 /* AFFILIATES */
-.affiliates{width:min(700px,calc(100% - 40px));margin:30px auto 0;display:flex;flex-direction:column;align-items:center;gap:18px;}
+.affiliates{width:min(700px,calc(100% - 40px));margin:30px auto 0;display:flex;flex-direction:column;align-items:center;gap:18px;scroll-margin-top:60px;}
 .aff-title{color:#fff;font-size:.68rem;letter-spacing:5px;text-align:center;}
 .aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 .aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);background:rgba(5,5,7,.72);backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform.3s ease,border-color.3s ease;}
 .aff-person:hover{border-color:rgba(212,175,55,.95);transform:translateY(-3px) scale(1.05);}
 .aff-person img{width:100%;height:100%;object-fit:cover;}
+
+/* NAV DOTS */
+.navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
+.navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);border:2px solid transparent;cursor:pointer;transition:all.3s ease;}
+.navdot:hover{background:rgba(212,175,55,.6);}
+.navdot.active{background:var(--gold);box-shadow:0 0 12px var(--gold);transform:scale(1.3);}
+@media(max-width:768px){.navdots{right:15px;}}
 </style>
 </head>
 <body>
@@ -60,6 +70,14 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <source src="https://i.imgur.com/vFys77C.mp4" type="video/mp4">
 </video>
 <div class="bgshade"></div>
+
+<!-- NAV DOTS -->
+<div class="navdots">
+<div class="navdot active" data-target="exclusive"></div>
+<div class="navdot" data-target="luvones"></div>
+<div class="navdot" data-target="player"></div>
+<div class="navdot" data-target="affiliates"></div>
+</div>
 
 <div id="gate">
 <div class="gatebox">
@@ -72,7 +90,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <div class="rule"></div>
 
 <section id="treeArea">
-<div class="tier">
+<div class="tier" id="exclusive">
 <div class="ttitle">EXCLUSIVE | REVSHIT | AMARI</div>
 <div class="roster">
 <article class="person">
@@ -94,7 +112,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 </div>
 </div>
 
-<div class="tier">
+<div class="tier" id="luvones">
 <div class="ttitle messiah">LUVONES</div>
 <div class="roster">
 <article class="person">
@@ -118,7 +136,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 </section>
 
 <!-- MUSIC PLAYER -->
-<div class="player">
+<div class="player" id="player">
 <div class="player-cover">
 <img src="https://i.imgur.com/yUP4suK.jpeg" alt="cover">
 </div>
@@ -133,7 +151,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 </div>
 
 <!-- AFFILIATES -->
-<div class="affiliates">
+<div class="affiliates" id="affiliates">
 <div class="aff-title">AFFILIATES</div>
 <div class="aff-roster">
 <div class="aff-person"><img src="https://i.imgur.com/BPQlx8m.jpeg" alt="aff1"></div>
@@ -155,6 +173,7 @@ var isPlaying = false;
 var playBtn = document.getElementById("playBtn");
 var progressBar = document.getElementById("progressBar");
 var bgvideo = document.querySelector(".bgvideo");
+var navdots = document.querySelectorAll(".navdot");
 
 document.getElementById("gobtn").addEventListener("click",function(){
 document.getElementById("gate").style.opacity="0";
@@ -180,6 +199,27 @@ isPlaying = true;
 audio.addEventListener("timeupdate",function(){
 var progress = (audio.currentTime / audio.duration) * 100;
 progressBar.style.width = progress + "%";
+});
+
+// NAV DOTS CLICK
+navdots.forEach(function(dot){
+dot.addEventListener("click",function(){
+var target = document.getElementById(this.dataset.target);
+target.scrollIntoView({behavior:"smooth"});
+});
+});
+
+// ACTIVE DOT ON SCROLL
+window.addEventListener("scroll",function(){
+var sections = ["exclusive","luvones","player","affiliates"];
+var scrollPos = window.scrollY + 200;
+sections.forEach(function(id,i){
+var sec = document.getElementById(id);
+if(sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos){
+navdots.forEach(d=>d.classList.remove("active"));
+navdots[i].classList.add("active");
+}
+});
 });
 
 document.addEventListener("pointermove",function(e){
