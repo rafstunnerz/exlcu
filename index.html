@@ -12,13 +12,11 @@
 body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#050505;font-family:Outfit,sans-serif;}
 .bgpic{position:fixed;inset:-28px;z-index:-3;background:url("https://file.garden/akd_Clp1FDtnmrWc/YTDown.com_YouTube_NO-LIMIT-4L-ICE-ICE-OMV-REPOST_Media_T65gRhQbLA_001_1080p%20(online-video-cutter.com)%20(2).gif") center 42%/cover no-repeat;filter:brightness(.32) saturate(.85) contrast(1.05);transform:scale(1.04);}
 .bgshade{position:fixed;inset:0;z-index:-2;background: linear-gradient(180deg,rgba(5,3,12,.18),rgba(8,5,18,.56) 56%,#07050d 100%),linear-gradient(90deg,rgba(5,3,12,.42),transparent 45%,rgba(5,3,12,.42));}
-
 #gate{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);transition:opacity.6s ease;}
 .gatebox{text-align:center;animation:fadeIn 1s ease;}
 @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 #gobtn{padding:16px 40px;color:#fff;border:2px solid #d4af37;border-radius:12px;background:rgba(212,175,55,.1);box-shadow:0 0 20px rgba(212,175,55,.2);font:inherit;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all.3s ease;}
 #gobtn:hover{background:#d4af37;color:#000;box-shadow:0 8px 30px rgba(212,175,55,.6);transform:translateY(-3px);}
-
 .wrap{width:100%;display:flex;flex-direction:column;align-items:center;padding-bottom:40px;opacity:0;transition:opacity.5s ease;padding-top:40px;}
 .wrap.show{opacity:1}
 .tag{margin:0 20px 0;color:var(--dim);font-size:.68rem;letter-spacing:1.5px;text-align:center;}
@@ -51,48 +49,30 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 <main class="wrap">
 <p class="tag">“exclusive owns u.”</p>
 <div class="rule"></div>
-
 <section id="treeArea">
 <div class="tier">
 <div class="ttitle">EXCLUSIVE</div>
 <div class="roster">
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/NTcYvTj.jpeg"></div>
-<div class="pplacard">
-<div class="pname">/$</div>
-<div class="phandle">@htrb1734</div>
-<div class="pstatus">offline</div>
-</div>
+<div class="pplacard"><div class="pname">/$</div><div class="phandle">@htrb1734</div><div class="pstatus">offline</div></div>
 </article>
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/AxucUUU.jpeg"></div>
-<div class="pplacard">
-<div class="pname">CO-FOUNDER</div>
-<div class="phandle">@partner</div>
-<div class="pstatus">Online</div>
-</div>
+<div class="pplacard"><div class="pname">CO-FOUNDER</div><div class="phandle">@partner</div><div class="pstatus">Online</div></div>
 </article>
 </div>
 </div>
-
 <div class="tier">
 <div class="ttitle messiah">LUVONES</div>
 <div class="roster">
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/WKC5krx.jpeg"></div>
-<div class="pplacard">
-<div class="pname">nicolez</div>
-<div class="phandle">@loczzzz</div>
-<div class="pstatus">Online</div>
-</div>
+<div class="pplacard"><div class="pname">nicolez</div><div class="phandle">@loczzzz</div><div class="pstatus">Online</div></div>
 </article>
 <article class="person">
 <div class="pface"><img src="https://i.imgur.com/97T8keB.jpeg"></div>
-<div class="pplacard">
-<div class="pname">seb</div>
-<div class="phandle">@sebvsall</div>
-<div class="pstatus">Online</div>
-</div>
+<div class="pplacard"><div class="pname">seb</div><div class="phandle">@sebvsall</div><div class="pstatus">Online</div></div>
 </article>
 </div>
 </div>
@@ -101,7 +81,7 @@ body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--ink);background:#05
 
 <script>
 var audio = new Audio();
-audio.src = "./MEDICAL.mp3";
+audio.src = "./Hev Abi - MEDICAL (Audio) [Sm4KLgn4110].mp3";
 audio.volume = 0.6;
 audio.loop = true;
 
@@ -114,7 +94,6 @@ console.log("Audio blocked:", e);
 setTimeout(function(){document.getElementById("gate").remove()},600);
 });
 
-// PARALLAX
 document.addEventListener("pointermove",function(e){
 if(!matchMedia("(pointer:fine)").matches)return;
 var bg=document.querySelector(".bgpic");
