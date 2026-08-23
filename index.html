@@ -44,7 +44,7 @@ body::-webkit-scrollbar{display:none;}
 .aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 .aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);}
 .aff-person img{width:100%;height:100%;object-fit:cover;}
-.navdots{position:fixed;right:30px;top:50%;transform:translate(-50%;z-index:90;display:flex;flex-direction:column;gap:16px;}
+.navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;}
 .navdot.active{background:var(--gold);}
 </style>
@@ -77,20 +77,40 @@ body::-webkit-scrollbar{display:none;}
     <div class="tier" id="exclusive">
         <div class="ttitle">EXCLUSIVE | REVSHIT | AMARI</div>
         <div class="roster">
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/NTcYvTj.jpeg"></div><div class="pplacard"><div class="pname">/$</div><div class="phandle">@htrb1734</div><div class="pstatus">offline</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/AxucUUU.jpeg"></div><div class="pplacard"><div class="pname">bluntz</div><div class="phandle">@htrb1487</div><div class="pstatus">Online</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/M1ftfV8.jpeg"></div><div class="pplacard"><div class="pname">SPINBACK/WAY2IC</div><div class="phandle">@htrb1428</div><div class="pstatus">Online</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/HaZ2EFB.jpeg"></div><div class="pplacard"><div class="pname">jaox</div><div class="phandle">@htrbjaox</div><div class="pstatus">Online</div></div></article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/AxucUUU.jpeg"></div>
+                <div class="pplacard"><div class="pname">bluntz</div><div class="phandle">@htrb1487</div><div class="pstatus">Online</div></div>
+            </article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/M1ftfV8.jpeg"></div>
+                <div class="pplacard"><div class="pname">SPINBACK/WAY2IC</div><div class="phandle">@htrb1428</div><div class="pstatus">Online</div></div>
+            </article>
         </div>
     </div>
 
     <div class="tier" id="luvones">
         <div class="ttitle">LUVONES</div>
         <div class="roster">
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/WKC5krx.jpeg"></div><div class="pplacard"><div class="pname">nicolez</div><div class="phandle">@loczzzz</div><div class="pstatus">Online</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/I2qmINA.jpeg"></div><div class="pplacard"><div class="pname">spinback/vera</div><div class="phandle">@kiki</div><div class="pstatus">Online</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/97T8keB.jpeg"></div><div class="pplacard"><div class="pname">seb</div><div class="phandle">@sebvsall</div><div class="pstatus">Online</div></div></article>
-            <article class="person"><div class="pface"><img src="https://i.imgur.com/sel8bty.jpeg"></div><div class="pplacard"><div class="pname">restinpeace</div><div class="phandle">@deleted_user124211321215</div><div class="pstatus">Online</div></div></article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/WKC5krx.jpeg"></div>
+                <div class="pplacard"><div class="pname">nicolez</div><div class="phandle">@loczzzz</div><div class="pstatus">Online</div></div>
+            </article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/I2qmINA.jpeg"></div>
+                <div class="pplacard"><div class="pname">spinback/vera</div><div class="phandle">@kiki</div><div class="pstatus">Online</div></div>
+            </article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/97T8keB.jpeg"></div>
+                <div class="pplacard"><div class="pname">seb</div><div class="phandle">@sebvsall</div><div class="pstatus">Online</div></div>
+            </article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/sel8bty.jpeg"></div>
+                <div class="pplacard"><div class="pname">restinpeace</div><div class="phandle">@deleted_user124211321215</div><div class="pstatus">Online</div></div>
+            </article>
+            <article class="person">
+                <div class="pface"><img src="https://i.imgur.com/a7R59LO.jpeg"></div>
+                <div class="pplacard"><div class="pname">𝕿𝖆𝖓𝕰𝖓𝖉𝖔</div><div class="phandle">@tanazgxd</div><div class="pstatus">Online</div></div>
+            </article>
         </div>
     </div>
 </section>
@@ -121,12 +141,12 @@ var audio = new Audio();
 audio.src = "./Hev Abi - MEDICAL (Audio) [Sm4KLgn4110].mp3";
 audio.volume = 0.6;
 audio.loop = true;
-var isPlaying = true; // DEFAULT PLAYING NA
+var isPlaying = true;
 
 document.getElementById("gobtn").addEventListener("click",function(){
 document.getElementById("gate").style.display="none";
 document.querySelector(".wrap").classList.add("show");
-audio.play().catch(()=>{console.log("autoplay blocked")}); // TUTUGTOG AGAD DITO
+audio.play().catch(()=>{});
 document.getElementById("playBtn").innerHTML = "⏸";
 });
 
