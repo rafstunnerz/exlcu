@@ -44,7 +44,7 @@ body::-webkit-scrollbar{display:none;}
 .aff-roster{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 .aff-person{width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);}
 .aff-person img{width:100%;height:100%;object-fit:cover;}
-.navdots{position:fixed;right:30px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:16px;}
+.navdots{position:fixed;right:30px;top:50%;transform:translate(-50%;z-index:90;display:flex;flex-direction:column;gap:16px;}
 .navdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;}
 .navdot.active{background:var(--gold);}
 </style>
@@ -100,7 +100,7 @@ body::-webkit-scrollbar{display:none;}
     <div class="player-info">
         <div class="player-title">MEDICAL</div>
         <div class="player-artist">HEV ABI</div>
-        <button class="player-btn" id="playBtn">▶</button>
+        <button class="player-btn" id="playBtn">⏸</button>
     </div>
 </div>
 
@@ -117,15 +117,19 @@ body::-webkit-scrollbar{display:none;}
 </main>
 
 <script>
-document.getElementById("gobtn").addEventListener("click",function(){
-document.getElementById("gate").style.display="none";
-document.querySelector(".wrap").classList.add("show");
-});
-
 var audio = new Audio();
 audio.src = "./Hev Abi - MEDICAL (Audio) [Sm4KLgn4110].mp3";
 audio.volume = 0.6;
-var isPlaying = false;
+audio.loop = true;
+var isPlaying = true; // DEFAULT PLAYING NA
+
+document.getElementById("gobtn").addEventListener("click",function(){
+document.getElementById("gate").style.display="none";
+document.querySelector(".wrap").classList.add("show");
+audio.play().catch(()=>{console.log("autoplay blocked")}); // TUTUGTOG AGAD DITO
+document.getElementById("playBtn").innerHTML = "⏸";
+});
+
 document.getElementById("playBtn").addEventListener("click",function(){
 if(isPlaying){ audio.pause(); this.innerHTML = "▶"; isPlaying = false;}
 else{ audio.play(); this.innerHTML = "⏸"; isPlaying = true;}
